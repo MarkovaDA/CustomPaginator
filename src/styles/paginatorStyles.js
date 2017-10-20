@@ -1,10 +1,10 @@
 export const paginatorPreviewStyle = {
   width: '90%',
   height: 'auto',
-  margin: '5% 5%',
   display: 'flex',
   flexWrap: 'wrap',
-  justifyContent: 'flex-start'
+  margin: '5% 5%',
+  justifyContent: 'flex-start',
 };
 
 export const tileBehaviourStyle = {
@@ -27,4 +27,14 @@ export const tileStyle = (tileWidth) => {
     height: 'auto',
     margin: '5px'
   }
+};
+
+
+export const pageSwitcherStyle = {
+  'position':'relative',
+  'width':'100%',
+  'height': 'auto',
+  'margin': '5px',
+  'display': 'flex',
+  'justify-content': 'center'
 };
