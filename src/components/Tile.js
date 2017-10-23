@@ -3,8 +3,8 @@ import jss from 'jss';
 import preset from 'jss-preset-default';
 import { tileBehaviourStyle, tileStyle } from '../styles/paginatorStyles';
 
-class Tile extends Component {
 
+class Tile extends Component {
   render() {
     jss.setup(preset());
     const { classes } = jss.createStyleSheet(tileBehaviourStyle).attach();

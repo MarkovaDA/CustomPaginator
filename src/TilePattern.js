@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import 'semantic-ui-css/semantic.min.css';
-import { Segment,Label} from 'semantic-ui-react';
+import { Segment, Label} from 'semantic-ui-react';
 
-//шаблон, который отображается пользователем
+
 class TilePattern extends Component {
 
   render() {
