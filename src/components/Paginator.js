@@ -25,13 +25,13 @@ class Paginator extends Component {
         console.error(error);
       });
   }
-
+  //ПАГИНАТОР ПОДПИСЫВАЕТСЯ НА ХРАНИЛИЩЕ И ВЫПОЛНЯЕТ ОБНОВЛЕНИЕ КОНТЕНТА ПО ИНДЕКСУ this.currentPage
   render() {
     const tileWidth = 100/this.props.countInRow - 1;//размер одного тайла
     //totalPageCount - всего страниц
     return (
       <div style={paginatorWrapperStyle}>
-        <PageSwitcher countDisplayedPages={5} totalPageCount={20} />
+        <PageSwitcher countDisplayedPages={10} totalPageCount={20} />
         <div style={tilePreviewStyle}>
           {
             this.state.tiles.map((tile, index) => <Tile key={index} width={tileWidth} pattern={<TilePattern tileEntity={this.state.tiles[index]}/>}/>)
