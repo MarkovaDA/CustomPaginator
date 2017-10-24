@@ -30,7 +30,6 @@ class PageSwitcherUnit extends Component {
     let unitStyle = `${classes.normal}`;
 
     if (this.state.number === this.props.currentPage) {
-      console.log('unitStyle');
       unitStyle += ` ${classes.selection}`;
     }
 

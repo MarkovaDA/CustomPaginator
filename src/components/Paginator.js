@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Tile from '../components/Tile';
 import TilePattern from '../TilePattern';
+import { connect } from 'react-redux';
 import { tilePreviewStyle, paginatorWrapperStyle } from '../styles/paginatorStyles';
 import PageSwitcher from "./PageSwitcher";
 
@@ -10,36 +11,46 @@ class Paginator extends Component {
   };
 
   componentDidMount() {
-    this.getSourceForTiles();
+    this.getSourceForTiles(0, this.props.countOnPage);
   }
 
-  getSourceForTiles() {
+  componentWillReceiveProps(props) {
+    this.getSourceForTiles(props.currentPage - 1, this.props.countOnPage);
+  }
+
+  getSourceForTiles(pageNumber, portionSize) {
     fetch(this.props.dataSource)
       .then((response) => response.json())
       .then((tiles) => {
+        console.log(pageNumber*portionSize, (pageNumber + 1)*portionSize);
         this.setState({
-          tiles: tiles
+          tiles: tiles.slice(pageNumber*portionSize, (pageNumber + 1)*portionSize)
         });
       })
       .catch((error) => {
         console.error(error);
       });
   }
-  //ПАГИНАТОР ПОДПИСЫВАЕТСЯ НА ХРАНИЛИЩЕ И ВЫПОЛНЯЕТ ОБНОВЛЕНИЕ КОНТЕНТА ПО ИНДЕКСУ this.currentPage
+
   render() {
     const tileWidth = 100/this.props.countInRow - 1;//размер одного тайла
-    //totalPageCount - всего страниц
+    const pageCount = Math.ceil(this.props.dataSize / this.props.countOnPage);
+
     return (
       <div style={paginatorWrapperStyle}>
-        <PageSwitcher countDisplayedPages={10} totalPageCount={20} />
+        <PageSwitcher countDisplayedPages={5} totalPageCount={pageCount} />
         <div style={tilePreviewStyle}>
           {
             this.state.tiles.map((tile, index) => <Tile key={index} width={tileWidth} pattern={<TilePattern tileEntity={this.state.tiles[index]}/>}/>)
           }
         </div>
-        <PageSwitcher countDisplayedPages={5} totalPageCount={20} />
+        <PageSwitcher countDisplayedPages={5} totalPageCount={pageCount} />
       </div>
     );
   }
 }
-export default Paginator;
+export default connect(
+  state =>({
+    currentPage: state.currentPage
+  })
+)(Paginator);
