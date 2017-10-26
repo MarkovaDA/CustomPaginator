@@ -25,6 +25,10 @@ export const pageSwitcherSubscribe = (state = {delta:0, currentPage:1}, action) 
       return {
         ...state, currentPage: action.number
       };
+    case 'SWITCH_COUNT_IN_ROW':
+      return {
+        ...state, countInRow: action.countInRow
+      };
     default:
       return state;
   }

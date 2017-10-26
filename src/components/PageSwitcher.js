@@ -9,7 +9,6 @@ import { fill } from 'lodash';
 class PageSwitcher extends Component {
 
   onPageSelect = (pageNumber) => {
-    //pageNumber в storage
     this.props.setCurrentPage(pageNumber);
   };
 

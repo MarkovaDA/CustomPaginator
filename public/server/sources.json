@@ -9,6 +9,16 @@
   {"url": "http://localhost:3000/images/picture8.jpg", "name": "Александр"},
   {"url": "http://localhost:3000/images/picture9.jpg", "name": "Cема"},
   {"url": "http://localhost:3000/images/picture10.jpg", "name": "Лёшик"},
+  {"url": "http://localhost:3000/images/picture11.jpg", "name": "Боря"},
+  {"url": "http://localhost:3000/images/picture12.jpg", "name": "Павлик"},
+  {"url": "http://localhost:3000/images/picture13.jpg", "name": "Пушинка"},
+  {"url": "http://localhost:3000/images/picture14.jpg", "name": "Витек"},
+  {"url": "http://localhost:3000/images/picture15.jpg", "name": "Евграфий"},
+  {"url": "http://localhost:3000/images/picture16.jpg", "name": "Маркиз"},
+  {"url": "http://localhost:3000/images/picture17.jpg", "name": "Мурзик"},
+  {"url": "http://localhost:3000/images/picture18.jpg", "name": "Александр"},
+  {"url": "http://localhost:3000/images/picture19.jpg", "name": "Cема"},
+  {"url": "http://localhost:3000/images/picture20.jpg", "name": "Лёшик"},
   {"url": "http://localhost:3000/images/picture1.jpg", "name": "Боря"},
   {"url": "http://localhost:3000/images/picture2.jpg", "name": "Павлик"},
   {"url": "http://localhost:3000/images/picture3.jpg", "name": "Пушинка"},
@@ -38,5 +48,5 @@
   {"url": "http://localhost:3000/images/picture7.jpg", "name": "Мурзик"},
   {"url": "http://localhost:3000/images/picture8.jpg", "name": "Александр"},
   {"url": "http://localhost:3000/images/picture9.jpg", "name": "Cема"},
-  {"url": "http://localhost:3000/images/picture10.jpg", "name": "Лёшик"},
+  {"url": "http://localhost:3000/images/picture10.jpg", "name": "Лёшик"}
 ]

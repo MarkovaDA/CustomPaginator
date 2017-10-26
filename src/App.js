@@ -14,7 +14,7 @@ class App extends Component {
       * countOnPage:кол-во элементов, отображаемых на одной странице странице
       * dataSize: размер всего множества отображаемых объектов
       */
-      <Paginator countInRow={4} countOnPage={6} tilePattern={tileView} dataSize={50} dataSource='/server/sources.json'/>
+      <Paginator countInRow={5} countOnPage={6} tilePattern={tileView} dataSize={50} dataSource='/server/sources.json'/>
     );
   }
 }

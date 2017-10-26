@@ -3,18 +3,23 @@ import Tile from '../components/Tile';
 import TilePattern from '../TilePattern';
 import { connect } from 'react-redux';
 import { tilePreviewStyle, paginatorWrapperStyle } from '../styles/paginatorStyles';
-import PageSwitcher from "./PageSwitcher";
+import PageSwitcher from './PageSwitcher';
+import CountInRowSwitcher from './CountInRowSwitcher';
+import { isUndefined } from 'lodash';
 
 class Paginator extends Component {
   state = {
-    tiles: []
+    tiles: [],
+    countInRow: 1
   };
 
   componentDidMount() {
+    this.updateCountInRow(this.props.countInRow);//устанавливаем число экскизов в колонке по умолчанию
     this.getSourceForTiles(0, this.props.countOnPage);
   }
 
   componentWillReceiveProps(props) {
+    this.updateCountInRow(props.changeableCountInRow); //изменяем число эскизов согласно выбранному событию
     this.getSourceForTiles(props.currentPage - 1, this.props.countOnPage);
   }
 
@@ -32,12 +37,22 @@ class Paginator extends Component {
       });
   }
 
+  updateCountInRow(newCountInRow) {
+    if (isUndefined(newCountInRow)) {
+      return;
+    }
+    this.setState({
+      countInRow: newCountInRow
+    });
+  }
+
   render() {
-    const tileWidth = 100/this.props.countInRow - 1;//размер одного тайла
+    const tileWidth = 100/this.state.countInRow - 1;//размер одного тайла
     const pageCount = Math.ceil(this.props.dataSize / this.props.countOnPage);
 
     return (
       <div style={paginatorWrapperStyle}>
+        <CountInRowSwitcher />
         <PageSwitcher countDisplayedPages={5} totalPageCount={pageCount} />
         <div style={tilePreviewStyle}>
           {
@@ -50,7 +65,8 @@ class Paginator extends Component {
   }
 }
 export default connect(
-  state =>({
-    currentPage: state.currentPage
+  state => ({
+    currentPage: state.currentPage,
+    changeableCountInRow: state.countInRow
   })
 )(Paginator);
